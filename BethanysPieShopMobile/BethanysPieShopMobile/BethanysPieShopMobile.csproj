@@ -1,0 +1,76 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="3.3.0.967583" />
+    <PackageReference Include="Xamarin.HotReload" Version="1.4.12" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Demo\NavigationPageView.xaml" />
+    <EmbeddedResource Remove="Demo\CarouselPageView.xaml" />
+    <EmbeddedResource Remove="Demo\Helpers\BasketView.xaml" />
+    <EmbeddedResource Remove="Demo\Helpers\HomePageView.xaml" />
+    <EmbeddedResource Remove="Demo\MainPage.xaml" />
+    <EmbeddedResource Remove="Demo\MasterDetailPageView.xaml" />
+    <EmbeddedResource Remove="Demo\ModalPageView.xaml" />
+    <EmbeddedResource Remove="Demo\MyTabbedPage.xaml" />
+    <EmbeddedResource Remove="Demo\NavigationPageView.xaml" />
+    <EmbeddedResource Remove="Demo\StackLayoutPageView.xaml" />
+    <EmbeddedResource Remove="Demo\TabbedPageView.xaml" />
+    <EmbeddedResource Remove="Demo\TestPage.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="GridLayoutPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="LoginWithRelativeLayout.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="RelativeLayoutPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="StackLayoutPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="MyTabbedPage.xaml.cs" />
+    <Compile Remove="Demo\Helpers\ContactusView.xaml.cs" />
+    <Compile Remove="Demo\Helpers\PieOverviewView.xaml.cs" />
+    <Compile Remove="Demo\LoginWithStackLayoutView.xaml.cs" />
+    <Compile Remove="Demo\MainPage.xaml.cs" />
+    <Compile Remove="Demo\MasterDetailPageView.xaml.cs" />
+    <Compile Remove="Demo\MasterNavigationItem.cs" />
+    <Compile Remove="Demo\ModalPageView.xaml.cs" />
+    <Compile Remove="Demo\NavigationPageView.xaml.cs" />
+    <Compile Remove="Demo\StackLayoutPageView.xaml.cs" />
+    <Compile Remove="Demo\TabbedPageView.xaml.cs" />
+    <Compile Remove="Demo\TestPage.xaml.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Model\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Demo\Helpers\BasketView.xaml.cs">
+      <DependentUpon>..\..\Helpers\BasketView.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Demo\Helpers\HomePageView.xaml.cs">
+      <DependentUpon>..\..\Helpers\HomePageView.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Demo\Helpers\MasterPageView.xaml.cs">
+      <DependentUpon>..\..\Helpers\MasterPageView.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>
