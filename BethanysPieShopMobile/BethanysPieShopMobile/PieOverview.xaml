@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BethanysPieShopMobile.PieOverview">
+    <ListView x:Name="PiesListView"
+              IsPullToRefreshEnabled="true"
+              ItemSelected="PiesListView_OnItemSelected"
+              VerticalOptions="FillAndExpand"
+              CachingStrategy="RecycleElement">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <!--<TextCell Text="{Binding PieName}"
+                          Detail="{Binding Price}"></TextCell>-->
+                <!--<ImageCell Text="{Binding PieName}"
+                           Detail="{Binding Price}"
+                           ImageSource="{Binding ImageUrl}"></ImageCell>-->
+                <ViewCell>
+                    <Grid Margin="5"
+                          BackgroundColor="White"
+                          RowSpacing="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="50"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        
+                        <Image Grid.Row="0"
+                               Grid.Column="0"
+                               HeightRequest="100"
+                               WidthRequest="100"
+                               VerticalOptions="Start"
+                               Margin="2,2,1,2"
+                               Source="{Binding ImageUrl}"></Image>
+                        <Label Grid.Row="0"
+                               Grid.Column="1"
+                               VerticalOptions="Start"
+                               Margin="3"
+                               Text="{Binding PieName}"></Label>
+                        <Label Grid.Row="0"
+                               Grid.Column="2"
+                               HorizontalTextAlignment="End"
+                               FontAttributes="Bold"
+                               Margin="3"
+                               Text="{Binding Price, StringFormat='{0:C}'}"></Label>
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>
